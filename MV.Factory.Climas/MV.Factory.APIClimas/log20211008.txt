@@ -1,0 +1,23 @@
+2021-10-08 18:47:07.903 -03:00 [INF] Application started. Press Ctrl+C to shut down.
+2021-10-08 18:47:07.975 -03:00 [INF] Request starting HTTP/2.0 GET https://localhost:44318/index.html  
+2021-10-08 18:47:08.048 -03:00 [INF] Hosting environment: Development
+2021-10-08 18:47:08.053 -03:00 [INF] Content root path: C:\Users\jzilman\source\repos\MV.Factory.Climas\MV.Factory.APIClimas
+2021-10-08 18:47:08.150 -03:00 [INF] Request finished in 180.992ms 200 text/html;charset=utf-8
+2021-10-08 18:47:08.348 -03:00 [INF] Request starting HTTP/2.0 GET https://localhost:44318/swagger/v1/swagger.json  
+2021-10-08 18:47:08.463 -03:00 [INF] Request finished in 115.676ms 200 application/json;charset=utf-8
+2021-10-08 18:47:12.314 -03:00 [INF] Request starting HTTP/2.0 GET https://localhost:44318/ZonasClimas  
+2021-10-08 18:47:12.328 -03:00 [INF] Executing endpoint 'MV.Factory.APIClimas.Controllers.ZonasClimasController.Get (MV.Factory.APIClimas)'
+2021-10-08 18:47:12.362 -03:00 [INF] Route matched with {action = "Get", controller = "ZonasClimas"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get() on controller MV.Factory.APIClimas.Controllers.ZonasClimasController (MV.Factory.APIClimas).
+2021-10-08 18:47:12.573 -03:00 [INF] Datos de Zonas
+2021-10-08 18:47:12.578 -03:00 [ERR] Datos de Zonas
+2021-10-08 18:47:12.582 -03:00 [WRN] ss
+2021-10-08 18:47:13.190 -03:00 [WRN] No type was specified for the decimal property 'SensacionTermica' on entity type 'HistorialConsultaClima'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-10-08 18:47:13.194 -03:00 [WRN] No type was specified for the decimal property 'Temperatura' on entity type 'HistorialConsultaClima'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values in 'OnModelCreating' using 'HasColumnType()', specify precision and scale using 'HasPrecision()' or configure a value converter using 'HasConversion()'.
+2021-10-08 18:47:13.313 -03:00 [INF] Entity Framework Core 5.0.10 initialized 'ClimasContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+2021-10-08 18:47:14.024 -03:00 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [z].[ID], [z].[Nombre], [z].[Pais]
+FROM [ZonaClima] AS [z]
+2021-10-08 18:47:14.100 -03:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[MV.Factory.Domain.Implementaciones.ZonaClima, MV.Factory.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2021-10-08 18:47:14.113 -03:00 [INF] Executed action MV.Factory.APIClimas.Controllers.ZonasClimasController.Get (MV.Factory.APIClimas) in 1741.8541ms
+2021-10-08 18:47:14.117 -03:00 [INF] Executed endpoint 'MV.Factory.APIClimas.Controllers.ZonasClimasController.Get (MV.Factory.APIClimas)'
+2021-10-08 18:47:14.125 -03:00 [INF] Request finished in 1811.5947ms 200 application/json; charset=utf-8

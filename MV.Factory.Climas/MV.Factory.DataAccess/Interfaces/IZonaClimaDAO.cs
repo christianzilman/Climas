@@ -9,5 +9,6 @@ namespace MV.Factory.DataAccess.Interfaces
     {
         IList<ZonaClima> Obtener();
         void Agregar(ZonaClima zonaClima);
+        ZonaClima Obtener(int id);
     }
 }

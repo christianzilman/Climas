@@ -28,7 +28,7 @@ namespace MV.Factory.APIClimas.Controllers
             }
             catch (Exception ex)
             {
-                Log.Error($"Error en el metodo {nameof(Post)} al intentar realizar el alta de un historial de consulta {ex.Message}");
+                Log.Error($"Error en el metodo {nameof(Post)} al intentar realizar el alta de un historial de consulta error {ex.Message}");
                 return BadRequest("Hubo un error");
             }
         }
@@ -45,7 +45,7 @@ namespace MV.Factory.APIClimas.Controllers
             }
             catch (Exception ex)
             {
-                Log.Error($"Error en el metodo {nameof(Get)} al intentar realizar la consulta del historial de consulta {ex.Message}");
+                Log.Error($"Error en el metodo {nameof(Get)} al intentar realizar la consulta del historial de consulta error {ex.Message}");
                 return BadRequest("Hubo un error");
             }
         }

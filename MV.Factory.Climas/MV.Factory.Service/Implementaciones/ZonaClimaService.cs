@@ -26,5 +26,10 @@ namespace MV.Factory.Service.Implementaciones
         {
             return _zonaClimaDAO.Obtener();
         }
+
+        public ZonaClima Obtener(int id)
+        {
+            return _zonaClimaDAO.Obtener(id);
+        }
     }
 }

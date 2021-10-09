@@ -23,7 +23,7 @@ namespace MV.Factory.SitioClimas.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Acerca()
         {            
             return View();
         }

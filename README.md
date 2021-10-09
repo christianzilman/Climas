@@ -42,3 +42,15 @@ que se encuentra en appsetting de la web api como el site mvc.
 
 
 
+
+Para ejecutar el sistema deberá primero ejecutar la web api
+
+MV.Factory.APIClimas
+
+(la url en donde se muestra es https://localhost:44318/)
+
+Luego deberá ejecutar el sitio 
+
+MV.Factory.SitioClimas
+
+(la url en donde se muestra es https://localhost:44352/)

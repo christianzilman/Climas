@@ -24,5 +24,10 @@ namespace MV.Factory.DataAccess.Implementaciones
         {
             return _climasContext.ZonasClimas.ToList();
         }
+
+        public ZonaClima Obtener(int id)
+        {
+            return _climasContext.ZonasClimas.SingleOrDefault(p => p.ID == id);
+        }
     }
 }

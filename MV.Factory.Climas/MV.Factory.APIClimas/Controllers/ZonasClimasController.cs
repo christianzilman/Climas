@@ -27,7 +27,7 @@ namespace MV.Factory.APIClimas.Controllers
             }
             catch (Exception ex)
             {
-                Log.Error($"Error al tratar agregar una zona de climas {nameof(Post)}: {ex}");
+                Log.Error($"Error al tratar agregar una zona de climas {nameof(Post)}: error {ex}");
                 return BadRequest("Hubo un error");
             }
         }
@@ -41,9 +41,25 @@ namespace MV.Factory.APIClimas.Controllers
             }
             catch (Exception ex)
             {
-                Log.Error($"Error al tratar de obtener las zonas de climas {nameof(Get)}: {ex}");
+                Log.Error($"Error al tratar de obtener las zonas de climas {nameof(Get)}: error {ex}");
                 return BadRequest("Hubo un error");
             }            
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            try
+            {
+                var zonaClima = _zonaClimaService.Obtener(id);
+
+                return Ok(zonaClima);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Error al tratar de obtener una zona de clima id {id} action {nameof(Get)}: error {ex}");
+                return BadRequest("Hubo un error");
+            }
         }
     }
 }

@@ -1,0 +1,87 @@
+﻿@model MV.Factory.SitioClimas.Models.Clima.ClimasViewModel
+@{
+    ViewData["Title"] = " Climas";
+}
+
+<div class="row">
+    <h1 class="ml-3">Climas</h1>
+</div>
+
+@using (Html.BeginForm("ConsultarClima", "Clima", FormMethod.Post, new { @class = "mb-1" }))
+{
+    <div class="form-row">
+        <div class="col-12 col-sm-4 my-1">
+            @Html.DropDownListFor(m => m.ClimaConsultaModel.IdZonaClima, Model.ZonasClimas, new { @class = "custom-select mr-sm-4" })
+            <small class="error">@Html.ValidationMessageFor(m => m.ClimaConsultaModel.IdZonaClima) </small>
+        </div>
+        <div class="col-12 col-sm-2 my-1">
+            <div class="custom-control custom-checkbox mr-sm-2">
+                @Html.CheckBoxFor(m => m.ClimaConsultaModel.DebeIncluirHistorico, new { @class = "custom-control-input" })
+                @*<input type="checkbox" class="custom-control-input" id="customControlAutosizing">*@
+                @Html.LabelFor(m => m.ClimaConsultaModel.DebeIncluirHistorico, new { @class = "custom-control-label" })
+            </div>
+        </div>
+        <div class="col-12 col-sm-3 my-1">
+            @Html.LabelFor(m => m.ClimaConsultaModel.FechaConsulta, new { @class = "mr-sm-4" })
+
+            @Html.TextBoxFor(m => m.ClimaConsultaModel.FechaConsulta, "{0:dd/MM/yyyy}", new { @readonly = "readonly", id = "txtFechaConsulta" })
+
+            <small class="error">@Html.ValidationMessageFor(m => m.ClimaConsultaModel.FechaConsulta) </small>
+        </div>
+        <div class="col-12 col-sm-3 my-1">
+            <button type="submit" class="btn btn-primary">Consultar</button>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-2">Ciudad:</div>
+    <div class="col-10">@Model.ClimaModel.CiudadNombreCompleto</div>
+</div>
+
+<div class="row">
+    <div class="col-2">Clima:</div>
+    <div class="col-10">@Model.ClimaModel.Temperatura.ToString("n2") ° - Sensacción Térmica: @Model.ClimaModel.SensacionTermica.ToString("n2") °</div>
+</div>
+
+<div class="row mt-5 mr-1 ml-1 ">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Pais</th>
+                <th>Ciudad</th>
+                <th>Clima</th>
+                <th>Sensación Térmica</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.HistorialConsultaClima != null)
+            {
+                foreach (var historial in Model.HistorialConsultaClima)
+                {
+                    <tr>
+                        <td>@historial.Pais</td>
+                        <td>@historial.ZonaClimaNombre</td>
+                        <td>@historial.Temperatura.ToString("n2") °</td>
+                        <td>@historial.SensacionTermica.ToString("n2") °</td>
+                        <td>@historial.FechaConsulta.ToString("mm/MM/yyyy HH:mm")</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            $('#txtFechaConsulta').datepicker({
+                changeMonth: true,
+                changeYear: true,
+                format: "dd/mm/yyyy",
+                language: "es"
+            });
+        });
+    </script>
+} 

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-//using Microsoft.Extensions.Logging;
-using MV.Factory.Domain.Implementaciones;
+using MV.Factory.APIClimas.Models.ZonasClimas;
 using MV.Factory.Service.Interfaces;
 using Serilog;
 using System;
@@ -18,17 +17,18 @@ namespace MV.Factory.APIClimas.Controllers
             _zonaClimaService = zonaClimaService;
         }
 
-        [HttpPost] IActionResult Post(ZonaClima zonaClima)
+        [HttpPost] IActionResult Post(ZonaClimaModel zonaClima)
         {
             try
             {
-                _zonaClimaService.AgregarZonaClima(zonaClima);
+                _zonaClimaService.Agregar(zonaClima.ModelToZonaClima());
 
                 return Ok();
             }
             catch (Exception ex)
             {
-                return BadRequest($"Error al tratar agregar una zona de climas {nameof(Post)}: {ex}");
+                Log.Error($"Error al tratar agregar una zona de climas {nameof(Post)}: {ex}");
+                return BadRequest("Hubo un error");
             }
         }
 
@@ -37,7 +37,7 @@ namespace MV.Factory.APIClimas.Controllers
         {
             try
             {
-                return Ok(_zonaClimaService.ObtenerZonas());
+                return Ok(_zonaClimaService.Obtener());
             }
             catch (Exception ex)
             {

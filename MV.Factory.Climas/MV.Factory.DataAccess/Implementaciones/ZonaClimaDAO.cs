@@ -14,7 +14,13 @@ namespace MV.Factory.DataAccess.Implementaciones
             _climasContext = climasContext;
         }
 
-        public IList<ZonaClima> ObtenerZonas()
+        public void Agregar(ZonaClima zonaClima)
+        {
+            _climasContext.ZonasClimas.Add(zonaClima);
+            _climasContext.SaveChanges();
+        }
+
+        public IList<ZonaClima> Obtener()
         {
             return _climasContext.ZonasClimas.ToList();
         }

@@ -18,10 +18,11 @@ namespace MV.Factory.Dependecy
 
             //DAO
             services.AddTransient<IZonaClimaDAO, ZonaClimaDAO>();
-
+            services.AddTransient<IHistorialConsultaClimaDAO, HistorialConsultaClimaDAO>();
 
             //Service
             services.AddTransient<IZonaClimaService, ZonaClimaService>();
+            services.AddTransient<IHistorialConsultaClimaService, HistorialConsultaClimaService>();
         }
     }
 }

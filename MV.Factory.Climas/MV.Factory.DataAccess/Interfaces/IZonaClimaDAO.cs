@@ -7,6 +7,7 @@ namespace MV.Factory.DataAccess.Interfaces
 {
     public interface IZonaClimaDAO
     {
-        IList<ZonaClima> ObtenerZonas();
+        IList<ZonaClima> Obtener();
+        void Agregar(ZonaClima zonaClima);
     }
 }

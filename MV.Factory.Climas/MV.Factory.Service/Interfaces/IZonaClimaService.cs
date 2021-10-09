@@ -7,7 +7,7 @@ namespace MV.Factory.Service.Interfaces
 {
     public interface IZonaClimaService
     {
-        IList<ZonaClima> ObtenerZonas();
-        void AgregarZonaClima(ZonaClima zonaClima);
+        IList<ZonaClima> Obtener();
+        void Agregar(ZonaClima zonaClima);
     }
 }

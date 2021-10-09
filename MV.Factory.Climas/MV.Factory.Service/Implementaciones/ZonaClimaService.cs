@@ -16,14 +16,15 @@ namespace MV.Factory.Service.Implementaciones
             _zonaClimaDAO = zonaClimaDAO;
         }
 
-        public void AgregarZonaClima(ZonaClima zonaClima)
+        public void Agregar(ZonaClima zonaClima)
         {
-            throw new NotImplementedException();
+
+            _zonaClimaDAO.Agregar(zonaClima);
         }
 
-        public IList<ZonaClima> ObtenerZonas()
+        public IList<ZonaClima> Obtener()
         {
-            return _zonaClimaDAO.ObtenerZonas();
+            return _zonaClimaDAO.Obtener();
         }
     }
 }
